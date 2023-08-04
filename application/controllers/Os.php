@@ -84,23 +84,23 @@ class Os extends CI_Controller {
         $getInfos = $this->os_model->getOsById($id);
         $route = "<span style='color: #6f6969; font-weight: 500; font-size: 21px;'>Diagnosticar</span>";
 
-        $this->form($getInfos, $route, false);
+        $this->formDiagnosticar($getInfos, $route, false);
     }
 
 
 
-    public function form($info = false, $route = false,$formDisabled = false){
-        $data['route'] = $route;
+	public function form($info = false, $route = false,$formDisabled = false){
+		$data['route'] = $route;
 
-        $data['equipamentos'] = $this->equipamentos_model->getAll();
-        $data['setores']      = $this->setor_model->getAll();
-        if($this->input->post('id_user')){
-            $data['user']['id_user'] = $this->input->post('id_user');
-        }elseif( $info->id_user){
-            $data['user']['id_user'] = $info->id_user;
-        }else{
-            $data['user']['id_user'] = '';
-        }
+		$data['equipamentos'] = $this->equipamentos_model->getAll();
+		$data['setores']      = $this->setor_model->getAll();
+		if($this->input->post('id_user')){
+			$data['user']['id_user'] = $this->input->post('id_user');
+		}elseif( $info->id_user){
+			$data['user']['id_user'] = $info->id_user;
+		}else{
+			$data['user']['id_user'] = '';
+		}
 		if($this->input->post('equipamento')){
 			$data['user']['equipamento'] = $this->input->post('equipamento');
 		}elseif( $info->id_equipamento){
@@ -116,21 +116,21 @@ class Os extends CI_Controller {
 			$data['user']['id_tecnico'] = '';
 		}
 
-        if($this->input->post('id_setor')){
-            $data['user']['id_setor'] = $this->input->post('id_setor');
-        }elseif( $info->id_setor){
-            $data['user']['id_setor'] = $info->id_setor;
-        }else{
-            $data['user']['id_setor'] = '';
-        }
+		if($this->input->post('id_setor')){
+			$data['user']['id_setor'] = $this->input->post('id_setor');
+		}elseif( $info->id_setor){
+			$data['user']['id_setor'] = $info->id_setor;
+		}else{
+			$data['user']['id_setor'] = '';
+		}
 
-        if($this->input->post('problema_cliente')){
-            $data['user']['problema_cliente'] = $this->input->post('problema_cliente');
-        }elseif( $info->problema_cliente){
-            $data['user']['problema_cliente'] = $info->problema_cliente;
-        }else{
-            $data['user']['problema_cliente'] = '';
-        }
+		if($this->input->post('problema_cliente')){
+			$data['user']['problema_cliente'] = $this->input->post('problema_cliente');
+		}elseif( $info->problema_cliente){
+			$data['user']['problema_cliente'] = $info->problema_cliente;
+		}else{
+			$data['user']['problema_cliente'] = '';
+		}
 
 		if($this->input->post('obs')){
 			$data['user']['obs'] = $this->input->post('obs');
@@ -172,20 +172,114 @@ class Os extends CI_Controller {
 			$data['user']['solucao'] = '';
 		}
 
-        if($this->input->post('status')){
-            $data['user']['status'] = $this->input->post('status');
-        }elseif( $info->status_id){
-            $data['user']['status'] = $info->status_id;
-        }else{
-            $data['user']['status'] = '';
-        }
+		if($this->input->post('status')){
+			$data['user']['status'] = $this->input->post('status');
+		}elseif( $info->status_id){
+			$data['user']['status'] = $info->status_id;
+		}else{
+			$data['user']['status'] = '';
+		}
 		$data['allTecnicos'] = $this->user_model->getAllTecnicos();
-        $data['formDisabled'] = $formDisabled;
-        $this->load->view('os/diagnosticar', $data);
-    }
+		$data['formDisabled'] = $formDisabled;
+		$this->load->view('os/form', $data);
+	}
+	public function formDiagnosticar($info = false, $route = false,$formDisabled = false){
+		$data['route'] = $route;
+
+		$data['equipamentos'] = $this->equipamentos_model->getAll();
+		$data['setores']      = $this->setor_model->getAll();
+		if($this->input->post('id_user')){
+			$data['user']['id_user'] = $this->input->post('id_user');
+		}elseif( $info->id_user){
+			$data['user']['id_user'] = $info->id_user;
+		}else{
+			$data['user']['id_user'] = '';
+		}
+		if($this->input->post('equipamento')){
+			$data['user']['equipamento'] = $this->input->post('equipamento');
+		}elseif( $info->id_equipamento){
+			$data['user']['equipamento'] = $info->id_equipamento;
+		}else{
+			$data['user']['equipamento'] = '';
+		}
+		if($this->input->post('id_tecnico')){
+			$data['user']['id_tecnico'] = $this->input->post('id_tecnico');
+		}elseif( $info->id_tecnico){
+			$data['user']['id_tecnico'] = $info->id_tecnico;
+		}else{
+			$data['user']['id_tecnico'] = '';
+		}
+
+		if($this->input->post('id_setor')){
+			$data['user']['id_setor'] = $this->input->post('id_setor');
+		}elseif( $info->id_setor){
+			$data['user']['id_setor'] = $info->id_setor;
+		}else{
+			$data['user']['id_setor'] = '';
+		}
+
+		if($this->input->post('problema_cliente')){
+			$data['user']['problema_cliente'] = $this->input->post('problema_cliente');
+		}elseif( $info->problema_cliente){
+			$data['user']['problema_cliente'] = $info->problema_cliente;
+		}else{
+			$data['user']['problema_cliente'] = '';
+		}
+
+		if($this->input->post('obs')){
+			$data['user']['obs'] = $this->input->post('obs');
+		}elseif( $info->obs){
+			$data['user']['obs'] = $info->obs;
+		}else{
+			$data['user']['obs'] = '';
+		}
+		if($this->input->post('diagnostico')){
+			$data['user']['diagnostico'] = $this->input->post('diagnostico');
+		}elseif( $info->diagnostico){
+			$data['user']['diagnostico'] = $info->diagnostico;
+		}else{
+			$data['user']['diagnostico'] = '';
+		}
 
 
-    public function index(){
+		if($this->input->post('id_tecnico')){
+			$data['user']['id_tecnico'] = $this->input->post('id_tecnico');
+		}elseif( $info->id_tecnico){
+			$data['user']['id_tecnico'] = $info->id_tecnico;
+		}else{
+			$data['user']['id_tecnico'] = '';
+		}
+
+		if($this->input->post('previsao_entrega')){
+			$data['user']['previsao_entrega'] = $this->input->post('previsao_entrega');
+		}elseif( $info->previsao_entrega_no_formated){
+			$data['user']['previsao_entrega'] = $info->previsao_entrega_no_formated;
+		}else{
+			$data['user']['previsao_entrega'] = '';
+		}
+
+		if($this->input->post('solucao')){
+			$data['user']['solucao'] = $this->input->post('solucao');
+		}elseif( $info->solucao){
+			$data['user']['solucao'] = $info->solucao;
+		}else{
+			$data['user']['solucao'] = '';
+		}
+
+		if($this->input->post('status')){
+			$data['user']['status'] = $this->input->post('status');
+		}elseif( $info->status_id){
+			$data['user']['status'] = $info->status_id;
+		}else{
+			$data['user']['status'] = '';
+		}
+		$data['allTecnicos'] = $this->user_model->getAllTecnicos();
+		$data['formDisabled'] = $formDisabled;
+		$this->load->view('os/diagnosticar', $data);
+	}
+
+
+	public function index(){
         $filtrosAberto = array('status' => 1);
         $filtrosAndamento = array('status' => 2);
         $filtrosFinalizado = array('status' => 3);
