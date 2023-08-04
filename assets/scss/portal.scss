@@ -1,0 +1,91 @@
+/*************************** Theme Colours****************************/
+// Define theme colour scheme
+$theme-color-primary: #e84c01;
+
+$theme-text-color-primary: #252930;
+$theme-text-color-secondary: lighten($theme-text-color-primary, 25%);
+$theme-text-color-light: lighten($theme-text-color-primary, 40%);
+$theme-bg-light: #f5f6fe;
+$theme-border-color: lighten($theme-text-color-primary, 75%);
+$theme-color-new: #f59701;
+$theme-color-count: #EC776C;
+$theme-error: #EC575B;
+$smoky-white: #f5f5f5;
+
+$theme-success-color: #f59701;
+$theme-warning-color: #EEBF41;
+$theme-info-color: #5b99ea;
+$theme-danger-color: #d26d69;
+
+
+$theme-color-pdf: #DA2D27;
+$theme-color-word: #66a0fd;
+$theme-color-ppt: #f4b400;
+$theme-color-excel: #e84c01;
+$theme-color-video: #f18202;
+$theme-color-zip: #252930;
+
+
+/*************************** Variables Section. *****************************/
+// Create variables to override the default value for variables used in the Bootstrap SCSS files.
+
+
+$theme-colors: (
+  "primary":  $theme-color-primary, 
+  "secondary": $theme-text-color-secondary, 
+  "success": $theme-success-color,
+  "danger": $theme-danger-color,
+  "warning": $theme-warning-color,
+  "info": $theme-info-color,
+);
+
+@media screen and (max-width:891px){
+  .app-header-inner{
+    width:100%;
+  }
+}
+.app-content{
+  min-height: 88vh;
+}
+.button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+.modal-header .close {
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+.close:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  background-color: #fff;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  border:none !important;
+}
+button, select {
+  text-transform: none;
+}
+.info2 .opt_group {
+  float: left;
+  width: calc(100% / 3);
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+/*************************** Import Bootstrap  *****************************/
+@import "bootstrap/scss/bootstrap.scss";
+
+
+/*************************** Theme Styles Section ****************************/
+@import "app/styles.scss";
+
