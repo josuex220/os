@@ -70,6 +70,7 @@ class Relatorios extends CI_Controller {
 						$html .= "<table>";
 						$html .= "<tr>
                             <th>ID</th>
+                            <th>Cod Equipamento</th>
                             <th>Marca</th>
                             <th>Modelo</th>
                             <th>Serie</th>
@@ -83,6 +84,7 @@ class Relatorios extends CI_Controller {
 						foreach ($equipamentos as $equipamento) {
 							$html .= "<tr>
                                 <td>" . $equipamento->tipo . "-" . $equipamento->id_equipamento . "</td>
+                                <td>" . $equipamento->codigo . "</td>
                                 <td>" . $equipamento->marca . "</td>
                                 <td>" . $equipamento->modelo . "</td>
                                 <td>" . $equipamento->serie . "</td>
@@ -113,6 +115,7 @@ class Relatorios extends CI_Controller {
 					$html .= "<table>";
 					$html .= "<tr>
                             <th>ID</th>
+                            <th>Cod Equipamento</th>
                             <th>Marca</th>
                             <th>Modelo</th>
                             <th>Serie</th>
@@ -126,6 +129,7 @@ class Relatorios extends CI_Controller {
 					foreach ($equipamentos as $equipamento) {
 						$html .= "<tr>
                                 <td>" . $equipamento->tipo . "-" . $equipamento->id_equipamento . "</td>
+                                <td>" . $equipamento->codigo . "</td>
                                 <td>" . $equipamento->marca . "</td>
                                 <td>" . $equipamento->modelo . "</td>
                                 <td>" . $equipamento->serie . "</td>
