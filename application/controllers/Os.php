@@ -155,6 +155,14 @@ class Os extends CI_Controller {
 		}else{
 			$data['user']['id_tecnico'] = '';
 		}
+		
+		if($this->input->post('solicitante')){
+			$data['user']['solicitante'] = $this->input->post('solicitante');
+		}elseif( $info->solicitante){
+			$data['user']['solicitante'] = $info->solicitante;
+		}else{
+			$data['user']['solicitante'] = '';
+		}
 
 		if($this->input->post('previsao_entrega')){
 			$data['user']['previsao_entrega'] = $this->input->post('previsao_entrega');
@@ -202,6 +210,13 @@ class Os extends CI_Controller {
 		}else{
 			$data['user']['equipamento'] = '';
 		}
+	    
+	    if( $info->solicitante){
+			$data['user']['solicitante'] = $info->solicitante;
+		}else{
+			$data['user']['solicitante'] = '';
+		}
+		
 		if($this->input->post('id_tecnico')){
 			$data['user']['id_tecnico'] = $this->input->post('id_tecnico');
 		}elseif( $info->id_tecnico){
@@ -266,9 +281,7 @@ class Os extends CI_Controller {
 			$data['user']['solucao'] = '';
 		}
 
-		if($this->input->post('status')){
-			$data['user']['status'] = $this->input->post('status');
-		}elseif( $info->status_id){
+		if( $info->status_id){
 			$data['user']['status'] = $info->status_id;
 		}else{
 			$data['user']['status'] = '';

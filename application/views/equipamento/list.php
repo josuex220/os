@@ -49,6 +49,7 @@
 										<thead>
 											<tr>
 												<th class="cell">Id</th>
+												<th class="cell">Cod. Equipamento</th>
 												<th class="cell">Marca</th>
 												<th class="cell">Model</th>
 												<th class="cell">Serie</th>
@@ -63,6 +64,7 @@
                                                 foreach ($equipamentos['all'] as $key => $equipamento) { ?>
                                                 <tr>
                                                     <td class="cell">EQP-<?=$equipamento->id_equipamento?></td>
+                                                    <td class="cell"><?=$equipamento->codigo?></td>
                                                     <td class="cell"><span class="truncate"><?=$equipamento->marca?></span></td>
                                                     <td class="cell"><?=$equipamento->modelo?></td>
                                                     <td class="cell"><?=$equipamento->serie?></td>
@@ -101,6 +103,7 @@
 										<thead>
                                             <tr>
 												<th class="cell">Id</th>
+												<th class="cell">Cod. Equipamento</th>
 												<th class="cell">Marca</th>
 												<th class="cell">Model</th>
 												<th class="cell">Serie</th>
@@ -115,6 +118,7 @@
                                                 foreach ($equipamentos['ativo'] as $key => $equipamento) { ?>
                                                 <tr>
                                                     <td class="cell">EQP-<?=$equipamento->id_equipamento?></td>
+                                                    <td class="cell"><?=$equipamento->codigo?></td>
                                                     <td class="cell"><span class="truncate"><?=$equipamento->marca?></span></td>
                                                     <td class="cell"><?=$equipamento->modelo?></td>
                                                     <td class="cell"><?=$equipamento->serie?></td>
@@ -150,6 +154,7 @@
 										<thead>
                                             <tr>
 												<th class="cell">Id</th>
+												<th class="cell">Cod. Equipamento</th>
 												<th class="cell">Marca</th>
 												<th class="cell">Model</th>
 												<th class="cell">Serie</th>
@@ -165,6 +170,7 @@
                                                 foreach ($equipamentos['inativo'] as $key => $equipamento) { ?>
                                                 <tr>
                                                     <td class="cell">EQP-<?=$equipamento->id_equipamento?></td>
+                                                    <td class="cell"><?=$equipamento->codigo?></td>
                                                     <td class="cell"><span class="truncate"><?=$equipamento->marca?></span></td>
                                                     <td class="cell"><?=$equipamento->modelo?></td>
                                                     <td class="cell"><?=$equipamento->serie?></td>

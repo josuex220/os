@@ -135,6 +135,14 @@ class Equipamento extends CI_Controller {
             $data['user']['ip'] = '';    
         }
 
+        if($this->input->post('codigo')){
+            $data['user']['ip'] = $this->input->post('codigo');
+        }elseif( $info->codigo){
+            $data['user']['codigo'] = $info->codigo;
+        }else{
+            $data['user']['codigo'] = '';    
+        }
+
         if($this->input->post('garantia')){
             $data['user']['garantia'] = $this->input->post('garantia');
         }elseif( $info->garantia){

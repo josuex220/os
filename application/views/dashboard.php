@@ -181,7 +181,7 @@
 														<a class="btn-sm app-btn-secondary btn-modal"  data-toggle="modal" data-target="#OSModal" data-os="<?=$os->id_os?>" data-osNumber="#OS-<?=OSNumber($os->id_os)?>" href="javascript:void(0)">Checar</a>
 														<?php if($os->status != 4 && $os->status != 3 && $this->session->userdata('roles') != "USER"){ ?>
 															<a class="btn-sm app-btn-secondary btn-cancelar" href="/os/cancelar/<?=$os->id_os?>">Cancelar</a>
-															<a class="btn-sm app-btn-secondary" href="/os/diagnostico">Diagnostico</a>
+															<a class="btn-sm app-btn-secondary" href="/os/diagnostico/<?=$os->id_os?>">Diagnostico</a>
 														<?php } ?>
 													</td>
 												</tr>

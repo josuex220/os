@@ -32,6 +32,9 @@ class Equipamentos_model extends CI_Model {
         if(!$post['num_patrimonio']){
             return array('error' => 'Campo numero do patrimonio é obrigatorio');
         }
+        if(!$post['codigo']){
+            return array('error' => 'Campo codigo do equipamento é obrigatorio');
+        }
 
         $update = array(
             'tipo' => $post['tipo'],
@@ -44,6 +47,7 @@ class Equipamentos_model extends CI_Model {
             'ref' => $post['ref'],
             'num_patrimonio' => $post['num_patrimonio'],
             'descricao' => $post['descricao'],
+            'codigo' => $post['codigo'],
         );
 
         if($this->db->where('num_patrimonio', $post['num_patrimonio'])->get('equipamentos')->num_rows() > 0){
@@ -68,6 +72,9 @@ class Equipamentos_model extends CI_Model {
         if(!$post['num_patrimonio']){
             return array('error' => 'Campo numero do patrimonio é obrigatorio');
         }
+        if(!$post['codigo']){
+            return array('error' => 'Campo codigo do equipamento é obrigatorio');
+        }
 
         $update = array(
             'tipo' => $post['tipo'],
@@ -80,6 +87,7 @@ class Equipamentos_model extends CI_Model {
             'ref' => $post['ref'],
             'num_patrimonio' => $post['num_patrimonio'],
             'descricao' => $post['descricao'],
+            'codigo' => $post['codigo'],
         );
 
         $this->db->where('id_equipamento', $id);

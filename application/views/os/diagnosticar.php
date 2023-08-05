@@ -1,7 +1,6 @@
 <?php $this->load->view('includes/header')?>
 
 <?php $this->load->view('includes/menu')?>
-
 <style>
 	select[readonly] {
 		background: #eee;
@@ -35,7 +34,7 @@
 											<select name="id_equipamento" disabled class="form-control" <?=$user['id_equipamento'] ? 'readonly' : ''?> required>
 												<option value="">Selecione o Equipamento</option>
 												<?php foreach ($equipamentos as $key => $equipamento) { ?>
-													<option value="<?=$equipamento->id_equipamento?>" <?= $equipamento->id_equipamento == $user['equipamento'] ? 'selected' : '' ?>>Marca: <?=$equipamento->marca?> - Modelo: <?=$equipamento->modelo?> - Ref: <?=$equipamento->ref?> -Patrimonio: <?=$equipamento->num_patrimonio?></option>
+                                                    <option value="<?=$equipamento->id_equipamento?>" <?= $equipamento->id_equipamento == $user['equipamento'] ? 'selected' : '' ?>>Codigo do Equipamento: <?=$equipamento->codigo?></option>
 												<?php } ?>
 											</select>
 										</div>
@@ -59,6 +58,10 @@
 											<label for="setting-descricao" class="form-label">Observações</label>
 											<textarea type="text" class="form-control" id="setting-descricao" disabled name="obs" placeholder="" style="min-height:100px"><?=$user['obs']?></textarea>
 										</div>
+										<div class="mb-3">
+									        <label for="setting-solicitante" class="form-label">Solicitante</label>
+    									    <input type="text" class="form-control" id="setting-solicitante" disabled name="solicitante" placeholder="Nome do Solicitante do chamado" value="<?=$user['solicitante']?>" />
+    									</div>
 										<div class="mb-3">
 											<label for="setting-diagnostico" class="form-label">Diagnostico</label>
 											<textarea type="text" class="form-control" <?=$user['status']==3 ? 'disabled' :'' ?> id="setting-diagnostico" name="diagnostico" placeholder="" style="min-height:100px"><?=$user['diagnostico']?></textarea>
@@ -88,8 +91,8 @@
 											<label required for="setting-status"  class="form-label">Status</label>
 											<select name="status" <?=$user['status']==3 ? 'readonly="true"' :'' ?> class="form-control" id="setting-status">
 												<option value="1" <?php if((int) $user['status'] >= 1){ ?> disabled <? } ?> >Aberto</option>
-												<option value="2" <?=(int) $user['status']+1 == 2  ? 'selected' : '' ?> <?php if((int) $user['status'] >= 2){ ?> disabled <? } ?> >Em Andamento</option>
-												<option value="3" <?=(int) $user['status']+1 == 3 || $user['status'] == 3 ? 'selected' : '' ?> <?php if((int) $user['status'] >= 3){ ?> disabled <? } ?> >Finalizado</option>
+												<option value="2" <?= $user['status']+1 == 2 ? 'selected' : '' ?> <?php if((int) $user['status'] >= 2){ ?> disabled <? } ?> >Em Andamento</option>
+												<option value="3" <?=  $user['status']+1 == 3 || $user['status'] == 3 ? 'selected' : '' ?> <?php if((int) $user['status'] >= 3){ ?> disabled <? } ?> >Finalizado</option>
 												<option value="4" disabled >Cancelado</option>
 											</select>
 										</div>

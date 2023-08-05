@@ -17,7 +17,7 @@ class Os_model extends CI_Model {
     
     function getOsById($osNumber){
         $this->db->select('o.*');
-        $this->db->select('customer.name');
+        // $this->db->select('customer.name');
         $this->db->select('o.id_tecnico');
         $this->db->select('tecnico.name as tecnico_name');
         $this->db->select('s.name as setor_name');
@@ -27,6 +27,7 @@ class Os_model extends CI_Model {
         $this->db->select('e.modelo');
         $this->db->select('e.marca');
         $this->db->select('e.serie');
+        $this->db->select('o.solicitante');
         $this->db->select('e.ip');
         $this->db->select('e.descricao');
         $this->db->select('e.garantia');
@@ -45,6 +46,7 @@ class Os_model extends CI_Model {
 		$row->previsao_entrega_no_formated = $row->previsao_entrega ? date("Y-m-d H:i", strtotime($row->previsao_entrega)) : '';
         $row->previsao_entrega =  $row->previsao_entrega ? date("d/m/Y À\s H:i:s", strtotime($row->previsao_entrega)) : '-';
         $row->tipo = $row->tipo == "EQP" ? 'Equipamento' : 'Impressora';
+        $row->name = $row->solicitante;
 		$row->status_id = $row->status;
         $row->status = getStatus($row->status);
         $row->id_os = "OS-".OSNumber($row->id_os);
@@ -53,7 +55,7 @@ class Os_model extends CI_Model {
     }
     function getLastOs($statuses = false){
         $this->db->select('o.*');
-        $this->db->select('customer.name');
+        $this->db->select('o.solicitante name');
         $this->db->select('o.id_tecnico');
         $this->db->select('tecnico.name as tecnico_name');
         $this->db->select('s.name as setor_name');
@@ -136,6 +138,7 @@ class Os_model extends CI_Model {
         if(!$post['id_user']){ return array('error' => 'Houve um erro ao tentar identificar seu cadastro, favor sair e entrar novamente no sistema!'); }
         if(!$post['id_setor']){ return array('error' => 'Houve um erro ao tentar identificar seu setor, favor sair e entrar novamente no sistema!'); }
         if(!$post['problema_cliente']){ return array('error' => 'Necessario descrever o problema!'); }
+        if(!$post['solicitante']){ return array('error' => 'Campo Solicitante é obrigatorio!'); }
 
         $dtInsert = array(
             'status' => $post['status'],
@@ -146,6 +149,7 @@ class Os_model extends CI_Model {
             'id_setor' => $post['id_setor'],
             'problema_cliente' => $post['problema_cliente'],
             'obs' => $post['obs'],
+            'solicitante' => $post['solicitante'],
             'status' => $post['status']
         );
 
@@ -157,7 +161,7 @@ class Os_model extends CI_Model {
     }
     function getOs($filtros = false){
         $this->db->select('o.*');
-        $this->db->select('customer.name');
+        $this->db->select('o.solicitante name');
         $this->db->select('o.id_tecnico');
         $this->db->select('tecnico.name as tecnico_name');
         $this->db->select('s.name as setor_name');

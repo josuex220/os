@@ -53,6 +53,10 @@
 									    <input type="text" class="form-control" id="setting-num_patrimonio" <?= $formDisabled ? 'disabled' : '' ?> name="num_patrimonio" value="<?=$user['num_patrimonio'] ? $user['num_patrimonio'] : uniqid('EQP-')?>" required placeholder="">
 									</div>
 								    <div class="mb-3">
+									    <label for="setting-codigo" class="form-label">Codigo do equipamento</label>
+									    <input type="text" class="form-control" id="setting-codigo" <?= $formDisabled ? 'disabled' : '' ?> name="codigo" value="<?=$user['codigo'] ? $user['codigo'] : ''?>" required placeholder="">
+									</div>
+								    <div class="mb-3">
 									    <label for="setting-descricao" class="form-label">Descrição</label>
 									    <textarea type="text" class="form-control" id="setting-descricao" <?= $formDisabled ? 'disabled' : '' ?> name="descricao" placeholder="" style="min-height:100px"><?=$user['descricao']?></textarea>
 									</div>

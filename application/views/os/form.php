@@ -35,7 +35,7 @@
                                         <select name="id_equipamento" class="form-control" <?=$user['id_equipamento'] ? 'readonly' : ''?> required>
                                             <option value="">Selecione o Equipamento</option>
                                             <?php foreach ($equipamentos as $key => $equipamento) { ?>
-                                                <option value="<?=$equipamento->id_equipamento?>" <?= $equipamento->id_equipamento == $user['equipamento'] ? 'selected' : '' ?>>Marca: <?=$equipamento->marca?> - Modelo: <?=$equipamento->modelo?> - Ref: <?=$equipamento->ref?> -Patrimonio: <?=$equipamento->num_patrimonio?></option>
+                                                <option value="<?=$equipamento->id_equipamento?>" <?= $equipamento->id_equipamento == $user['equipamento'] ? 'selected' : '' ?>>Codigo do Equipamento: <?=$equipamento->codigo?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -56,8 +56,12 @@
 									    <textarea type="text" class="form-control" id="setting-descricao" <?= $formDisabled ? 'disabled' : '' ?> required name="problema_cliente" placeholder="" style="min-height:100px"><?=$user['descricao']?></textarea>
 									</div>
                                     <div class="mb-3">
-									    <label for="setting-descricao" class="form-label">Observações</label>
-									    <textarea type="text" class="form-control" id="setting-descricao" <?= $formDisabled ? 'disabled' : '' ?> name="obs" placeholder="" style="min-height:100px"><?=$user['obs']?></textarea>
+									    <label for="setting-obs" class="form-label">Observações</label>
+									    <textarea type="text" class="form-control" id="setting-obs" <?= $formDisabled ? 'disabled' : '' ?> name="obs" placeholder="" style="min-height:100px"><?=$user['obs']?></textarea>
+									</div>
+                                    <div class="mb-3">
+									    <label for="setting-solicitante" class="form-label">Seu Nome</label>
+									    <input type="text" class="form-control" id="setting-solicitante" <?= $formDisabled ? 'disabled' : '' ?> name="solicitante" placeholder="Nome do Solicitante do chamado" value="<?=$user['solicitante']?>" />
 									</div>
 									<div class="mb-3">
 									    <label required for="setting-status"  class="form-label">Status</label>

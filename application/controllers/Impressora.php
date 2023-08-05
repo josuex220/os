@@ -119,6 +119,14 @@ class Impressora extends CI_Controller {
             $data['user']['modelo'] = '';    
         }
 
+        if($this->input->post('codigo')){
+            $data['user']['ip'] = $this->input->post('codigo');
+        }elseif( $info->codigo){
+            $data['user']['codigo'] = $info->codigo;
+        }else{
+            $data['user']['codigo'] = '';    
+        }
+        
         if($this->input->post('serie')){
             $data['user']['serie'] = $this->input->post('serie');
         }elseif( $info->serie){

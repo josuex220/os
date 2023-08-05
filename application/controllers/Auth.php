@@ -44,6 +44,12 @@ class Auth extends CI_Controller {
             $user = $this->user_model->get_user_by_username($username);
 
             if ($user && password_verify($password, $user->password)) {
+                $setor_name = $this->setor_model->getSetorById($setor)->name;
+                if(($user->roles == "ADMIN" || $user->roles == "TECNICO") && mb_strtoupper(trim($setor_name)) != "NTI"){
+                    $data['login_error'] = '<center>Tecnicos e Administradores devem logar atráves do setor NTI</center>';
+                    $this->load->view('login', $data);
+                    return false;
+                }
                 $user_data = array(
                     'user_id' => $user->id_user,
                     'username' => $user->username,

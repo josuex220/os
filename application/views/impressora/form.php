@@ -48,6 +48,12 @@
 									    <label for="setting-ref" class="form-label">Referencia</label>
 									    <input type="text" class="form-control" id="setting-ref" <?= $formDisabled ? 'disabled' : '' ?> name="ref" value="<?=$user['ref']?>" placeholder="">
 									</div>
+									
+								    <div class="mb-3">
+									    <label for="setting-codigo" class="form-label">Codigo do equipamento</label>
+									    <input type="text" class="form-control" id="setting-codigo" <?= $formDisabled ? 'disabled' : '' ?> name="codigo" value="<?=$user['codigo'] ? $user['codigo'] : ''?>" required placeholder="">
+									</div>
+									
 								    <div class="mb-3">
 									    <label for="setting-num_patrimonio" class="form-label">Numero do Patrimonio</label>
 									    <input type="text" class="form-control" id="setting-num_patrimonio" <?= $formDisabled ? 'disabled' : '' ?> name="num_patrimonio" value="<?=$user['num_patrimonio'] ? $user['num_patrimonio'] : uniqid('EQP-')?>" required placeholder="">
