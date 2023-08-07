@@ -16,7 +16,7 @@
 						<div class="alert alert-primary" role="alert">Não selecionar nenhum filtro caso queira relatorio completo</div>
 						<hr>
 						<div class="mb-4">
-							<form action="<?=current_url()?>" method="post">
+							<form action="<?=current_url()?>" method="post" target="_blank">
 								<div class="row">
 									<div class="col-6">
 										<div class="form-group">

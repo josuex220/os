@@ -17,8 +17,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 text-center mb-5">
-                    <h2 class="heading-section">
+                    <h2 class="heading-section" style="display:flex; justify-content:center; align-items:center;">
                         <img src="https://megachamados.cloud/img/logo.png" width="200px">
+                        <div style="width:200px;">
+                        <img src="https://megachamados.cloud/img/logo_prefeitura.jpg" width="100px">
+                        </div>
                     </h2>
                 </div>
             </div>

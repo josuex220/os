@@ -91,6 +91,15 @@ class Os_model extends CI_Model {
             return false;
         }
     }
+    function armazenar($id_os){
+         $this->db->where('id_os', $id_os);
+        $this->db->update('os', ['home_is_visible' => 1]);
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 	function update($id_os, $post){
 		if(!$post['status']){ return array('error' => 'Necessario ter um status!'); }
 		if($post['status'] == 2) {

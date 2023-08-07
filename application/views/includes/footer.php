@@ -7,7 +7,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Page Specific JS -->
-    <script src="assets/js/app.js?v=12"></script> 
+    <script src="assets/js/app.js?v=142"></script> 
 
 </body>
 </html> 

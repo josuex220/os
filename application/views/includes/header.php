@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="shortcut icon" href="favicon.ico"> 
-    <title>Cosmo</title>
+    <title>Mega Chamados</title>
     <!-- FontAwesome JS-->
     <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css">
@@ -26,6 +26,13 @@
             width: 100%;
             align-items: center;
             justify-content: right;
+        }
+        .app-branding{
+            height:120px;
+        }
+        .app-branding .logo-icon{
+            width:120px;
+            height:120px;
         }
     </style>
 </head> 

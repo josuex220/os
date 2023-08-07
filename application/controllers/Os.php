@@ -33,6 +33,23 @@ class Os extends CI_Controller {
         
         redirect('/os');
     }
+    public function armazenar($id = false){
+        if($this->session->userdata('roles') == "USER"){
+            $this->session->set_flashdata('error', 'Você não possui autorização');
+            redirect('/dashboard');
+        }
+        if($id){
+            if($this->os_model->armazenar($id)){            
+                $this->session->set_flashdata('success', 'OS armazenada com sucesso');
+            }else{
+                $this->session->set_flashdata('error', 'Houve um erro ao tentar armazenar a OS');
+            }
+        }else{
+            $this->session->set_flashdata('error', 'OS não identificado');
+        }
+        
+        redirect('/os');
+    }
 
     public function add(){
         $route = "<span style='color: #6f6969; font-weight: 500; font-size: 21px;'>Adicionar</span>";

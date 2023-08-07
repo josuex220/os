@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 05/08/2023 às 11:42
+-- Tempo de geração: 07/08/2023 às 03:23
 -- Versão do servidor: 10.6.12-MariaDB-cll-lve
 -- Versão do PHP: 7.2.34
 
@@ -42,16 +42,6 @@ CREATE TABLE `equipamentos` (
   `codigo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci ROW_FORMAT=COMPACT;
 
---
--- Despejando dados para a tabela `equipamentos`
---
-
-INSERT INTO `equipamentos` (`id_equipamento`, `tipo`, `status`, `modelo`, `marca`, `serie`, `ip`, `garantia`, `ref`, `num_patrimonio`, `descricao`, `codigo`) VALUES
-(1, 'EQP', 1, '1231', 'DELL', '1', '192.168.1.1', '1 ano', 'preto', 'EQP-1231231', 'teste', '1000'),
-(2, 'IMP', 1, '321', 'HP', 'DESKJET', '192.168.2.1', '', 'Branca', 'IMP-12312', NULL, '1001'),
-(3, 'EQP', 0, 'Inspiron 15', 'Dell', '2', '127.0.0.1', 'Sem Garantia', 'PC Preto', 'EQP-64c9ada7a4dcb', 'teste213123', '10010'),
-(5, 'IMP', 0, 'Deskjet', 'Hp', 'Serie 2', '127.0.0.1', 'teste', 'teste', 'EQP-64c9b071eb90c', 'teste', '1003');
-
 -- --------------------------------------------------------
 
 --
@@ -75,15 +65,9 @@ CREATE TABLE `os` (
   `valor` decimal(10,2) DEFAULT NULL,
   `obs` text DEFAULT NULL,
   `id_tecnico` int(11) DEFAULT NULL,
-  `solicitante` varchar(200) NOT NULL
+  `solicitante` varchar(200) NOT NULL,
+  `home_is_visible` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci ROW_FORMAT=COMPACT;
-
---
--- Despejando dados para a tabela `os`
---
-
-INSERT INTO `os` (`id_os`, `status`, `id_user`, `data_hora`, `data_hora_update`, `id_equipamento`, `id_setor`, `problema_cliente`, `data_hora_agenda`, `diagnostico`, `solucao`, `previsao_entrega`, `data_entrega`, `valor`, `obs`, `id_tecnico`, `solicitante`) VALUES
-(4, 1, 1, '2023-08-05 04:07:44', '2023-08-05 04:07:44', 1, 6, 'teste asd', NULL, NULL, NULL, NULL, NULL, NULL, 'teste asdteste asdteste asdteste asd', NULL, 'Josue Vidal');
 
 -- --------------------------------------------------------
 
@@ -106,7 +90,42 @@ INSERT INTO `setor` (`id_setor`, `name`, `status`) VALUES
 (2, 'Sec Educação ', 1),
 (3, 'Sec Saude', 1),
 (6, 'NTI', 1),
-(7, 'Sec Finanças', 1);
+(7, 'Sec Finanças', 1),
+(8, 'Ass-Social', 1),
+(9, 'Sec Administração', 1),
+(10, 'CRAS', 1),
+(11, 'Conselho Tutelar', 1),
+(12, 'Contabilidade', 1),
+(13, 'Departamento Pessoal', 1),
+(14, 'Tributos', 1),
+(15, 'Compras', 1),
+(16, 'Posto Saúde -SEDE', 1),
+(17, 'Posto Saúde - Povinho', 1),
+(18, 'Posto Saúde - Encruzinhada', 1),
+(19, 'Posto Saúde - Serra Iguariaça', 1),
+(20, 'Posto Saúde - São Donato', 1),
+(21, 'Posto Saúde - Bororé', 1),
+(22, 'Posto Saúde - Passo do Goularte', 1),
+(23, 'Escola Jose Piegas', 1),
+(24, 'Escola Euclides Aranha', 1),
+(25, 'Escola Marechal Rondon', 1),
+(26, 'Procuradoria', 1),
+(27, 'Juridico', 1),
+(28, 'Patrimonio', 1),
+(29, 'PIM', 1),
+(30, 'Meio Ambiente', 1),
+(31, 'Auditoria', 1),
+(32, 'Farmacia', 1),
+(33, 'Engenharia', 1),
+(34, 'Vigilancia Sanitaria', 1),
+(35, 'ICMS', 1),
+(36, 'Centro Fisio', 1),
+(37, 'Imprensa', 1),
+(38, 'Tesouraria', 1),
+(39, 'Seg Trabalho', 1),
+(40, 'Licitação', 1),
+(41, 'Sec - Agricultura', 1),
+(42, 'Nutrição', 1);
 
 -- --------------------------------------------------------
 
@@ -170,19 +189,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `equipamentos`
 --
 ALTER TABLE `equipamentos`
-  MODIFY `id_equipamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_equipamento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `os`
 --
 ALTER TABLE `os`
-  MODIFY `id_os` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_os` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `setor`
 --
 ALTER TABLE `setor`
-  MODIFY `id_setor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_setor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de tabela `users`

@@ -155,10 +155,10 @@
 										<thead>
 											<tr>
 												<th class="cell">ID OS</th>
-												<th class="cell">Ref. Equipamento</th>
 												<th class="cell">Funcionario</th>
 												<th class="cell">Setor</th>
 												<th class="cell">Data Abertura</th>
+												<th class="cell">Previsão de Entrega</th>
 												<th class="cell">Tecnico</th>
 												<th class="cell">Status</th>
 												<th class="cell"></th>
@@ -168,13 +168,17 @@
 											<?php 
 											if($getOSPends){
 												foreach ($getOSPends as $key => $os) {
+												    if($os->home_is_visible){
+												        continue;
+												    }
+												    // print_r($os);
 												?>
 												<tr>
 													<td class="cell">#OS-<?=OSNumber($os->id_os)?></td>
-													<td class="cell"><span class="truncate"><?=$os->ref?></span></td>
 													<td class="cell"><?=$os->name?></td>
 													<td class="cell"><?=$os->setor_name?></td>
 													<td class="cell"><span class="cell-data"><?=formatarHorario(explode(" ",$os->data_hora)[0], explode(" ",$os->data_hora)[1])['data']?></span><span class="note"><?=formatarHorario(explode(" ",$os->data_hora)[0], explode(" ",$os->data_hora)[1])['hora']?></span></td>
+													<td class="cell"><span class="cell-data"><?php if($os->previsao_entrega){ ?><?=formatarHorario(explode(" ",$os->previsao_entrega)[0], explode(" ",$os->previsao_entrega)[1])['data']?></span><span class="note"><?=formatarHorario(explode(" ",$os->previsao_entrega)[0], explode(" ",$os->previsao_entrega)[1])['hora']?></span><?php }else echo "-"; ?></td>
 													<td class="cell"><?=$os->tecnico_name?></td>
 													<td class="cell"><?=getStatus($os->status)?></td>
 													<td class="cell">
@@ -182,7 +186,9 @@
 														<?php if($os->status != 4 && $os->status != 3 && $this->session->userdata('roles') != "USER"){ ?>
 															<a class="btn-sm app-btn-secondary btn-cancelar" href="/os/cancelar/<?=$os->id_os?>">Cancelar</a>
 															<a class="btn-sm app-btn-secondary" href="/os/diagnostico/<?=$os->id_os?>">Diagnostico</a>
-														<?php } ?>
+														<?php }elseif($os->status == 4 || $os->status == 3) { ?>
+															<a class="btn-sm app-btn-secondary btn-armazenar" href="/os/armazenar/<?=$os->id_os?>">Armazenar</a>
+														<?php }?>
 													</td>
 												</tr>
 												<?php } ?>

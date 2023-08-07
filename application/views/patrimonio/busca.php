@@ -17,7 +17,7 @@
 							<form action="<?=current_url()?>" method="post">
 								<div class="form-group">
 									<label for="">Numero do patrimonio</label>
-									<input type="text" name="num_patrimonio" placeholder="Ex: EQP-64c9ada7a4dcb" class="form-control">
+									<input type="text" name="num_patrimonio" placeholder="Ex: 1234567" class="form-control">
 								</div>
 								<button class="btn app-btn-primary mt-4">Consultar</button>
 							</form>
